@@ -8,6 +8,7 @@ import {
   FacebookLogo,
   YoutubeLogo,
 } from "@phosphor-icons/react/dist/ssr";
+import { track } from "@/lib/analytics";
 
 const cols = [
   {
@@ -59,7 +60,10 @@ export default function Footer() {
           </div>
           <form
             className="flex flex-col gap-3 sm:flex-row"
-            onSubmit={(e) => e.preventDefault()}
+            onSubmit={(e) => {
+              e.preventDefault();
+              track("newsletter_submit", { location: "footer" });
+            }}
           >
             <label htmlFor="newsletter-email" className="sr-only">
               Email address

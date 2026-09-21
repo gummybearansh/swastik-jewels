@@ -12,6 +12,7 @@ import {
   CaretLeft,
   CaretRight,
 } from "@phosphor-icons/react";
+import { track } from "@/lib/analytics";
 
 if (typeof window !== "undefined") {
   gsap.registerPlugin(ScrollTrigger);
@@ -298,6 +299,7 @@ export default function ShopBestsellers() {
                 </p>
                 <button
                   type="button"
+                  onClick={() => track("add_to_bag", { product: p.name })}
                   className="mt-4 flex w-full items-center justify-center gap-2 rounded-full border border-[#121212]/15 py-3 text-sm font-medium transition-all duration-300 group-hover:border-[#121212] group-hover:bg-[#121212] group-hover:text-white active:scale-[0.98]"
                 >
                   <Handbag size={16} aria-hidden="true" />

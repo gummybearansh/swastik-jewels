@@ -14,6 +14,7 @@ import {
   Drop,
   Sparkle,
 } from "@phosphor-icons/react";
+import { track } from "@/lib/analytics";
 
 if (typeof window !== "undefined") {
   gsap.registerPlugin(ScrollTrigger);
@@ -123,6 +124,7 @@ export default function AtelierOffer() {
           <div className="relative mt-8 flex flex-col gap-3 sm:flex-row">
             <a
               href="#appointment"
+              onClick={() => track("appointment_click", { location: "atelier" })}
               className="group inline-flex items-center justify-center gap-2 rounded-full bg-white py-2 pl-8 pr-2 font-medium text-[#121212] active:scale-[0.98]"
             >
               <span className="py-2.5">Book a trial</span>
